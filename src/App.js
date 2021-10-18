@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import '@google/model-viewer';
 
 function App() {
+  const object_source = 'https://raw.githubusercontent.com/freitas-renato/test123/main/eiffel/Eiffel_tower_sample.gltf';
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <model-viewer 
+        alt="Eiffel tower 3D"
+        src={object_source}
+        ios-src=''
+        ar 
+        modes="webxr scene-viewer quick-look" 
+        camera-controls
+        auto-rotate
+        style={{width: "100vw", height: "90vh"}}>
+      </model-viewer>
     </div>
   );
 }
