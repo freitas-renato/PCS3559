@@ -10,7 +10,7 @@ const ModelViewer = ({ objectSource }) => (
         alt="Eiffel tower 3D"
         src={objectSource}
         ar 
-        modes="webxr scene-viewer quick-look" 
+        ar-modes="webxr scene-viewer quick-look" 
         camera-controls
         auto-rotate
         style={{width: "100vw", height: "90vh"}}>
