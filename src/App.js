@@ -6,8 +6,8 @@ import ModelViewer from './components/ModelViewer';
 import Dropzone from './components/DragAndDrop';
 
 function App() {
-  // const object_source = 'https://raw.githubusercontent.com/freitas-renato/test123/main/eiffel/Eiffel_tower_sample.gltf';
-  const object_source = 'https://raw.githubusercontent.com/freitas-renato/test123/main/squirtle/squirtle.gltf';
+  const object_source = 'https://raw.githubusercontent.com/freitas-renato/test123/main/eiffel/Eiffel_tower_sample.gltf';
+  // const object_source = 'https://raw.githubusercontent.com/freitas-renato/test123/main/squirtle/squirtle.gltf';
 
   return (
     <Router>
