@@ -1,5 +1,5 @@
 import React from "react";
-import { AppBar, Box, Toolbar, Typography, IconButton } from "@mui/material";
+import { AppBar, Box, Toolbar, Typography, IconButton, Button } from "@mui/material";
 import MenuIcon  from "@mui/icons-material/Menu";
 
 const Header = () => (
@@ -15,9 +15,11 @@ const Header = () => (
                 >
                     <MenuIcon />
                 </IconButton>
-                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                    Visualização 3D
-                </Typography>
+                <Button href="/" color="inherit" style={{ "text-transform": "none"}}>
+                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                        Visualização 3D
+                    </Typography>
+                </Button>
             </Toolbar>
         </AppBar>
     </Box>
