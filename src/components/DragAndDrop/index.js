@@ -1,19 +1,37 @@
 import React from "react";
 import {Navigate} from "react-router-dom";
 import {useDropzone} from "react-dropzone";
+import axios from "axios";
 
 import './index.css';
 
 const Dropzone = ({props}) => {
   const [isFileUploaded, setIsFileUploaded] = React.useState(false);
 
+  const [fileName, setFileName] = React.useState('');
+
+  const api_url = process.env.REACT_APP_API_URL;
 
   const {acceptedFiles, getRootProps, getInputProps} = useDropzone({
     onDrop: files => {
       console.log(files);
+      // Axios post files
+      const formData = new FormData();
+      for (let f of files) {
+        formData.append('file', f);
+      }
 
-      // TODO: save file in external database
-      setIsFileUploaded(true);
+      axios.post(`${api_url}/object`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      }).then(res => {
+        console.log(res);
+        setFileName(res.data.name);
+        setIsFileUploaded(true);
+      }).catch(err => {
+        console.log(err);
+      });
     }
   });
 
@@ -24,9 +42,10 @@ const Dropzone = ({props}) => {
     </li>
   ));
 
-  // TODO: redirect based on uploaded file
+  // Redirect to Model Viewer page using uploaded file name
   if (isFileUploaded) {
-    return <Navigate to="/object"/>
+    var redirect = `/object/${fileName}`;
+    return <Navigate to={redirect} />
   } 
 
   return (

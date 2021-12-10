@@ -5,9 +5,13 @@ import Header from './components/Header';
 import ModelViewer from './components/ModelViewer';
 import Dropzone from './components/DragAndDrop';
 
+// import axios from 'axios';
+
 function App() {
-  const object_source = 'https://raw.githubusercontent.com/freitas-renato/test123/main/eiffel/Eiffel_tower_sample.gltf';
+  // const object_source = 'https://raw.githubusercontent.com/freitas-renato/test123/main/eiffel/Eiffel_tower_sample.gltf';
   // const object_source = 'https://raw.githubusercontent.com/freitas-renato/test123/main/squirtle/squirtle.gltf';
+
+  // const object_source = "squirtle.gltf";
 
   return (
     <Router>
@@ -16,7 +20,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Dropzone />} />
-          <Route path="/object" element={<ModelViewer objectSource={object_source}/>} />
+          <Route path="/object/:name" element={<ModelViewer />} />
         </Routes>
 
       </div>
